@@ -1,0 +1,42 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.identifier-section {
+    text-align: center;
+}
+
+.stats-section {
+    text-align: center;
+}
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#pokemon-img {
+    border: black;
+}
+
+#typesTitle {
+    
+}
+
+#inc-button, 
+#dec-button {
+    width: 173px;
+    height: 69px;
+    font-size: 61px;
+    border-radius: 10px;
+}
+
+#stat-info {
+    width: 486px;
+    height: 598px;
+    background-color: #E8E8E8;
+}
+

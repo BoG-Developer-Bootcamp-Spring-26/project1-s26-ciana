@@ -5,22 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bits Of Good Mid-Semester Project</title>
     <link rel="stylesheet" href="styles.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Bits Of Good Mid-Semester Project</h1>
-    <div class="identifier-section">
-        <img id="pokemon-img"/>
-        <p id="pokemon-name"></p>
-        <h3>Types:</h3>
-        <p id="types"></p>
-        <button id="dec-button"><</button>
-        <button id="inc-button">></button>
-    </div>
-    <div class="stats-section">
-        <h3 id="stat-type"></h3>
-        <button id="info-button">Info</button>
-        <button id="moves-button">Moves</button>
+    <div class="content">
+        <div class="identifier-section">
+            <img id="pokemon-img"/>
+            <p id="pokemon-name"></p>
+            <h3 id="typesTitle">Types:</h3>
+            <p id="types"></p>
+            <button id="dec-button"><</button>
+            <button id="inc-button">></button>
+        </div>
+        <div class="stats-section">
+            <h3 id="stat-type"></h3>
+            <div id="stat-info"></div>
+            <button id="info-button">Info</button>
+            <button id="moves-button">Moves</button>
+        </div>
     </div>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
+
