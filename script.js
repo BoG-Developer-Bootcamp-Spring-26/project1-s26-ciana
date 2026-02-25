@@ -35,19 +35,29 @@ async function fetchPokemon(id){
 
     document.getElementById("pokemon-name").textContent = data.name;
 
-    let typesArea = document.getElementById("types")
+    let typesArea = document.getElementById("types-section")
     typesArea.textContent = "";
 
     data.types.forEach((type) => {
             const element = document.createElement("p");
+            element.className = type.type.name;
             element.textContent = type.type.name;
             typesArea.appendChild(element);
     })
-}
 
+    if(panel){
+        updateInfo();
+    } else {
+        updateMoves();
+    }
+}
 
 infoButton.addEventListener("click", () => {
     panel = true;
+
+    infoButton.classList.add("active");
+    movesButton.classList.remove("active");
+
     updateInfo();
     
 });
@@ -55,6 +65,10 @@ infoButton.addEventListener("click", () => {
 
 movesButton.addEventListener("click", () => {  
     panel = false; 
+
+    movesButton.classList.add("active");
+    infoButton.classList.remove("active");
+    
     updateMoves();   
     
 });
@@ -64,10 +78,12 @@ function updateMoves(){
     if(!panel) {
         statType.textContent = "Moves";
             
+            const moves = data.moves.map( m => (
+                `<p>${m.move.name}</p>`
+            )).join("");
+
             statInfo.innerHTML="";
-            statInfo.innerHTML = `
-                <p>${data.moves[0].move.name}</p>
-            `;
+            statInfo.innerHTML = moves;
     
     }
 }
@@ -77,14 +93,14 @@ function updateInfo(){
     if(panel) {
         statType.textContent = "Info";
 
-            const stats = data.stats.map( s => (
-                `<p>${s.stat.name}: ${s.base_stat}</p>`
-            )).join("");
+        const stats = data.stats.map( s => (
+            `<p>${s.stat.name}: ${s.base_stat}</p>`
+        )).join("");
 
-            statInfo.innerHTML = `
-                <p>height: ${data.height / 10} m</p>
-                <p>weight: ${data.weight / 10} kg</p>
-                ${stats}
-            `;
+        statInfo.innerHTML = `
+            <p>height: ${data.height / 10} m</p>
+            <p>weight: ${data.weight / 10} kg</p>
+            ${stats}
+        `;
     }
 }
